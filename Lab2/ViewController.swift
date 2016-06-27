@@ -7,13 +7,18 @@
 //
 
 import UIKit
+import AFNetworking
 
 class ViewController: UIViewController {
+    @IBOutlet weak var coderDateTableView: UITableView!
 
     var datas = [NSDictionary]?()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        coderDateTableView.delegate = self
+        coderDateTableView.dataSource = self
+        
         // Do any additional setup after loading the view, typically from a nib.
         
         loadDataFromNetwork()
@@ -45,12 +50,38 @@ class ViewController: UIViewController {
                     
                     self.datas = responseDictionary
                     print(self.datas)
+                    self.coderDateTableView.reloadData()
                 }
             }
         }
         
         task.resume()
         
+    }
+}
+
+//MARK: tableViewDelegate
+extension ViewController: UITableViewDelegate {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell") as! CoderDateTableViewCell
+        guard datas != nil else {
+            return cell
+        }
+        let data = datas![indexPath.row]
+        
+        cell.profileName.text = data["name"] as? String
+        if let imagePath = data["picture"] as? String {
+            let imageUrl = NSURL(string: imagePath)
+            cell.profileImage.setImageWithURL(imageUrl!)
+        }
+        return cell
+    }
+}
+
+//MARK: tableViewDataSource
+extension ViewController: UITableViewDataSource {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return datas?.count ?? 0
     }
 }
 

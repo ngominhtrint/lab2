@@ -9,9 +9,13 @@
 import UIKit
 
 class ViewController: UIViewController {
+    @IBOutlet weak var coderDateTableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        coderDateTableView.delegate = self
+        coderDateTableView.dataSource = self
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -21,5 +25,21 @@ class ViewController: UIViewController {
     }
 
 
+}
+
+//MARK: tableViewDelegate
+extension ViewController: UITableViewDelegate {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell") as! CoderDateTableViewCell
+        cell.profileName.text = "Hoa"
+        return cell
+    }
+}
+
+//MARK: tableViewDataSource
+extension ViewController: UITableViewDataSource {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
 }
 

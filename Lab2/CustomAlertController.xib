@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomAlertController" customModule="Lab2" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="i5M-Pr-FkT" id="WGj-Ic-k2t"/>
+                <outlet property="displayModeControl" destination="YKu-Km-tXP" id="heB-kH-QK7"/>
+                <outlet property="limitSlider" destination="eBJ-YZ-BwQ" id="C5S-CS-ONK"/>
+                <outlet property="offsetSlider" destination="Hcz-Sh-mgQ" id="rdt-ck-CEG"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hO1-9w-dgN">
+                    <rect key="frame" x="116" y="10" width="69" height="21"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Offset" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D8X-JV-sYa">
+                    <rect key="frame" x="25" y="106" width="48" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Display" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2dQ-rL-XUQ">
+                    <rect key="frame" x="25" y="60" width="56" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Limit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6qd-G6-Uvk">
+                    <rect key="frame" x="25" y="152" width="38" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hcz-Sh-mgQ">
+                    <rect key="frame" x="116" y="102" width="154" height="31"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="150" id="eRa-8e-1Ab"/>
+                    </constraints>
+                </slider>
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="17" translatesAutoresizingMaskIntoConstraints="NO" id="eBJ-YZ-BwQ">
+                    <rect key="frame" x="116" y="147.5" width="154" height="31"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="150" id="3EB-3C-GXe"/>
+                    </constraints>
+                </slider>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="YKu-Km-tXP">
+                    <rect key="frame" x="118" y="57" width="150" height="29"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="150" id="pB6-ox-wrR"/>
+                    </constraints>
+                    <segments>
+                        <segment title="List View"/>
+                        <segment title="Grid View"/>
+                    </segments>
+                    <connections>
+                        <action selector="onIndexChange:" destination="-1" eventType="valueChanged" id="PRZ-NX-Ped"/>
+                    </connections>
+                </segmentedControl>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="YKu-Km-tXP" firstAttribute="centerY" secondItem="2dQ-rL-XUQ" secondAttribute="centerY" id="3mS-FS-VAP"/>
+                <constraint firstItem="2dQ-rL-XUQ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="60" id="6TS-BO-Ldk"/>
+                <constraint firstItem="2dQ-rL-XUQ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="25" id="89T-R7-EuD"/>
+                <constraint firstItem="YKu-Km-tXP" firstAttribute="leading" secondItem="2dQ-rL-XUQ" secondAttribute="trailing" constant="37" id="9Y1-I2-LJg"/>
+                <constraint firstItem="D8X-JV-sYa" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="25" id="Lj1-dy-eIl"/>
+                <constraint firstItem="6qd-G6-Uvk" firstAttribute="top" secondItem="D8X-JV-sYa" secondAttribute="bottom" constant="25" id="Xy0-co-ctG"/>
+                <constraint firstItem="Hcz-Sh-mgQ" firstAttribute="centerY" secondItem="D8X-JV-sYa" secondAttribute="centerY" id="bnb-ad-eGZ"/>
+                <constraint firstItem="6qd-G6-Uvk" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="25" id="cZi-7U-Ho6"/>
+                <constraint firstItem="Hcz-Sh-mgQ" firstAttribute="leading" secondItem="D8X-JV-sYa" secondAttribute="trailing" constant="45" id="eFp-eE-Ya8"/>
+                <constraint firstItem="D8X-JV-sYa" firstAttribute="top" secondItem="2dQ-rL-XUQ" secondAttribute="bottom" constant="25" id="gUa-oQ-OPb"/>
+                <constraint firstItem="hO1-9w-dgN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="mkc-5O-75X"/>
+                <constraint firstItem="eBJ-YZ-BwQ" firstAttribute="leading" secondItem="6qd-G6-Uvk" secondAttribute="trailing" constant="55" id="sm9-Hm-2US"/>
+                <constraint firstItem="hO1-9w-dgN" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="suv-Tg-52n"/>
+                <constraint firstItem="eBJ-YZ-BwQ" firstAttribute="centerY" secondItem="6qd-G6-Uvk" secondAttribute="centerY" id="yf3-p8-ZES"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="457" y="116"/>
+        </view>
+    </objects>
+</document>

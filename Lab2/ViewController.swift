@@ -11,12 +11,19 @@ import AFNetworking
 import Answers
 
 class ViewController: UIViewController {
+
+    let CANCEL:Int = 0
+    let DONE:Int = 1
+    let LISTVIEW:Int = 0
+    let GRIDVIEW:Int = 1
     
     @IBOutlet weak var singersTableView: UITableView!
 
+    var subView: CustomAlertController!
     var datas = [NSDictionary]()
     var limit = 5
     var offset = 0
+    var displayMode = 0 //list view display by defaut
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -108,26 +115,33 @@ extension ViewController: UITableViewDataSource {
 }
 
 // MARK: - ActionSheet
-extension ViewController: UIActionSheetDelegate {
+extension ViewController: SwiftAlertViewDelegate {
     
     @IBAction func onSettingsClick(sender: UIBarButtonItem) {
-        let alertController = UIAlertController(title: "\n\n\n\n\n\n", message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
-        
-        let margin:CGFloat = 8.0
-        let rect = CGRectMake(margin, margin, alertController.view.bounds.size.width - margin * 4.0, 100.0)
-        let customView = UIView(frame: rect)
-        
-        customView.backgroundColor = UIColor.greenColor()
-        alertController.view.addSubview(customView)
-        
-        let somethingAction = UIAlertAction(title: "Something", style: UIAlertActionStyle.Default, handler: {(alert: UIAlertAction!) in print("something")})
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: {(alert: UIAlertAction!) in print("cancel")})
-        
-        alertController.addAction(somethingAction)
-        alertController.addAction(cancelAction)
-        
-        self.presentViewController(alertController, animated: true, completion:{})
+
+        subView = CustomAlertController(frame: CGRectMake(0, 20, view.bounds.width - 20, 200))
+        let alertView = SwiftAlertView(contentView: subView, delegate: self, cancelButtonTitle: "Cancel", otherButtonTitles: "Done")
+        alertView.show()
+
+    }
+    
+    func alertView(alertView: SwiftAlertView, clickedButtonAtIndex buttonIndex: Int) {
+        switch buttonIndex {
+        case DONE:
+            offset = subView.offset!
+            limit = subView.limit!
+            displayMode = subView.displayMode!
+            print("displayMode: \(displayMode == 0 ? "ListView" : "GridView"), offset: \(offset), limit: \(limit)")
+            break
+        default:
+            break
+        }
+    }
+    
+    func willPresentAlertView(alertView: SwiftAlertView) {
+        subView.offset = offset
+        subView.limit = limit
+        subView.displayMode = displayMode
     }
     
 }

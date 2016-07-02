@@ -73,10 +73,68 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4b6-dn-QD3">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="20" id="28N-PI-4jO">
+                                    <size key="itemSize" width="144" height="166"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SingerCollectionCell" id="d28-0A-CFf" customClass="SingerCollectionCell" customModule="Lab2" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="144" height="166"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="144" height="166"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ax3-cq-bBo">
+                                                    <rect key="frame" x="8" y="8" width="120" height="120"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="120" id="bay-bD-hxa"/>
+                                                        <constraint firstAttribute="height" constant="120" id="mMp-cU-VcU"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gJR-Tu-6HU">
+                                                    <rect key="frame" x="47" y="140" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="Ax3-cq-bBo" firstAttribute="top" secondItem="d28-0A-CFf" secondAttribute="top" constant="8" id="42M-v3-BSO"/>
+                                            <constraint firstAttribute="trailing" secondItem="Ax3-cq-bBo" secondAttribute="trailing" constant="8" id="FyN-50-H8W"/>
+                                            <constraint firstItem="gJR-Tu-6HU" firstAttribute="top" secondItem="Ax3-cq-bBo" secondAttribute="bottom" constant="12" id="LUh-eA-pfs"/>
+                                            <constraint firstItem="gJR-Tu-6HU" firstAttribute="centerX" secondItem="Ax3-cq-bBo" secondAttribute="centerX" id="QMB-TF-7zh"/>
+                                            <constraint firstItem="Ax3-cq-bBo" firstAttribute="leading" secondItem="d28-0A-CFf" secondAttribute="leading" constant="8" id="sP2-dr-bwU"/>
+                                            <constraint firstItem="Ax3-cq-bBo" firstAttribute="leading" secondItem="d28-0A-CFf" secondAttribute="leading" constant="8" id="v0y-BV-VO6"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="FyN-50-H8W"/>
+                                                <exclude reference="sP2-dr-bwU"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="gJR-Tu-6HU" id="gpI-rh-HPC"/>
+                                            <outlet property="singerImageView" destination="Ax3-cq-bBo" id="0me-ED-edA"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="rOU-c3-OhT" secondAttribute="trailing" id="32h-NN-UEP"/>
+                            <constraint firstAttribute="trailing" secondItem="4b6-dn-QD3" secondAttribute="trailing" id="4fz-g7-R2B"/>
+                            <constraint firstItem="nHD-ux-VcM" firstAttribute="top" secondItem="4b6-dn-QD3" secondAttribute="bottom" id="Eqm-d6-OAo"/>
+                            <constraint firstItem="4b6-dn-QD3" firstAttribute="leading" secondItem="rDH-ZW-mv6" secondAttribute="leading" id="LkF-iX-0he"/>
+                            <constraint firstItem="4b6-dn-QD3" firstAttribute="top" secondItem="he0-fl-P1W" secondAttribute="bottom" id="Sgx-T6-yCj"/>
                             <constraint firstItem="nHD-ux-VcM" firstAttribute="top" secondItem="rOU-c3-OhT" secondAttribute="bottom" id="cIv-sv-Zme"/>
                             <constraint firstItem="rOU-c3-OhT" firstAttribute="top" secondItem="he0-fl-P1W" secondAttribute="bottom" constant="-64" id="fgP-nP-T5t"/>
                             <constraint firstItem="rOU-c3-OhT" firstAttribute="leading" secondItem="rDH-ZW-mv6" secondAttribute="leading" id="goG-vu-QbZ"/>
@@ -96,6 +154,7 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="singersCollectionView" destination="4b6-dn-QD3" id="TJA-4v-5Rd"/>
                         <outlet property="singersTableView" destination="rOU-c3-OhT" id="ddy-W6-38k"/>
                     </connections>
                 </viewController>

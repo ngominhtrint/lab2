@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     let GRIDVIEW:Int = 1
     
     @IBOutlet weak var singersTableView: UITableView!
+    @IBOutlet weak var singersCollectionView: UICollectionView!
 
     var subView: CustomAlertController!
     var datas = [NSDictionary]()
@@ -29,7 +30,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         singersTableView.delegate = self
         singersTableView.dataSource = self
+        singersCollectionView.delegate = self
+        singersCollectionView.dataSource = self
         
+        showListMode()
         loadDataFromNetwork(0, limit: limit)
     }
 
@@ -59,6 +63,7 @@ class ViewController: UIViewController {
                     
                     self.datas = self.datas  + responseDictionary
                     self.singersTableView.reloadData()
+                    self.singersCollectionView.reloadData()
                 }
             }
         }
@@ -74,9 +79,40 @@ class ViewController: UIViewController {
         Answers.logCustomEventWithName("Show more", customAttributes: nil)
     }
     
+    func showListMode() {
+        singersCollectionView.hidden = true
+        singersTableView.hidden = false
+    }
+    
+    func showGridMode() {
+        singersCollectionView.hidden = false
+        singersTableView.hidden = true
+    }
+    
+    // MARK: - Switch list and collection
+    func  switchListAndCollection() {
+        switch displayMode {
+        case LISTVIEW:
+            showListMode()
+            break
+        case GRIDVIEW:
+            showGridMode()
+            break
+        default:
+            showListMode()
+            break
+        }
+    }
+    
     // MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let indexPath = singersTableView.indexPathForCell(sender as! UITableViewCell)
+        var indexPath:NSIndexPath!
+        if singersTableView.hidden { // collection view is shown
+            indexPath = singersCollectionView.indexPathForCell(sender as! UICollectionViewCell)
+        } else {
+            indexPath = singersTableView.indexPathForCell(sender as! UITableViewCell)
+        }
+        
         let vc = segue.destinationViewController as! DetailViewController
         vc.detailData = datas[(indexPath?.row)!]
     }
@@ -87,12 +123,13 @@ extension ViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("singerCell") as! SingerCell
         let data = datas[indexPath.row]
-        
         cell.nameLabel.text = data["name"] as? String
         if let imagePath = data["picture"] as? String {
             let imageUrl = NSURL(string: imagePath)
             cell.singerImageView.setImageWithURL(imageUrl!)
         }
+//        cell.nameLabel.text = "Hari Won"
+//        cell.singerImageView.setImageWithURL(NSURL(string: "http://images.herworldvietnam.vn/medias/2016/02/Hari-won-20.jpg")!)
         return cell
     }
     
@@ -111,10 +148,38 @@ extension ViewController: UITableViewDelegate {
 extension ViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return datas.count ?? 0
+//        return 10
     }
 }
 
-// MARK: - ActionSheet
+// MARK: - Collection View Delegate
+extension ViewController: UICollectionViewDelegate {
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("SingerCollectionCell", forIndexPath: indexPath) as! SingerCollectionCell
+        
+                let data = datas[indexPath.row]
+                cell.nameLabel.text = data["name"] as? String
+                if let imagePath = data["picture"] as? String {
+                    let imageUrl = NSURL(string: imagePath)
+                    cell.singerImageView.setImageWithURL(imageUrl!)
+                }
+        
+//        cell.nameLabel.text = "Hari Won"
+//        cell.singerImageView.setImageWithURL(NSURL(string: "http://images.herworldvietnam.vn/medias/2016/02/Hari-won-20.jpg")!)
+        
+        return cell
+    }
+}
+
+// MARK: - Collection View Datasource
+extension ViewController: UICollectionViewDataSource {
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return datas.count ?? 0
+//        return 10
+    }
+}
+
+// MARK: - Settings
 extension ViewController: SwiftAlertViewDelegate {
     
     @IBAction func onSettingsClick(sender: UIBarButtonItem) {
@@ -131,6 +196,7 @@ extension ViewController: SwiftAlertViewDelegate {
             offset = subView.offset!
             limit = subView.limit!
             displayMode = subView.displayMode!
+            switchListAndCollection()
             print("displayMode: \(displayMode == 0 ? "ListView" : "GridView"), offset: \(offset), limit: \(limit)")
             break
         default:
@@ -143,7 +209,7 @@ extension ViewController: SwiftAlertViewDelegate {
         subView.limit = limit
         subView.displayMode = displayMode
     }
-    
+
 }
 
 

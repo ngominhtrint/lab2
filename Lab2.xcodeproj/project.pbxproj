@@ -13,6 +13,7 @@
 		EB5EF7AB1D2815BC00FE3804 /* CustomAlertController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB5EF7A91D2815BC00FE3804 /* CustomAlertController.xib */; };
 		EB5EF7B11D28291300FE3804 /* SwiftAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5EF7B01D28291300FE3804 /* SwiftAlertView.swift */; };
 		EB5EF7B31D282E4000FE3804 /* CustomAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5EF7B21D282E4000FE3804 /* CustomAlertController.swift */; };
+		EB5EF7B91D28490000FE3804 /* SingerCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5EF7B81D28490000FE3804 /* SingerCollectionCell.swift */; };
 		EBB080771D21517000FD27A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB080761D21517000FD27A2 /* AppDelegate.swift */; };
 		EBB080791D21517000FD27A2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB080781D21517000FD27A2 /* ViewController.swift */; };
 		EBB0807C1D21517000FD27A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBB0807A1D21517000FD27A2 /* Main.storyboard */; };
@@ -29,6 +30,7 @@
 		EB5EF7A91D2815BC00FE3804 /* CustomAlertController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomAlertController.xib; sourceTree = "<group>"; };
 		EB5EF7B01D28291300FE3804 /* SwiftAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftAlertView.swift; sourceTree = "<group>"; };
 		EB5EF7B21D282E4000FE3804 /* CustomAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAlertController.swift; sourceTree = "<group>"; };
+		EB5EF7B81D28490000FE3804 /* SingerCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingerCollectionCell.swift; sourceTree = "<group>"; };
 		EBB080731D21517000FD27A2 /* Lab2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lab2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBB080761D21517000FD27A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EBB080781D21517000FD27A2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 				EB5EF7B21D282E4000FE3804 /* CustomAlertController.swift */,
 				EB5EF7A31D27A01500FE3804 /* SingerCell.swift */,
 				EB5EF7B01D28291300FE3804 /* SwiftAlertView.swift */,
+				EB5EF7B81D28490000FE3804 /* SingerCollectionCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 				EB5EF7A41D27A01500FE3804 /* SingerCell.swift in Sources */,
 				EBB080791D21517000FD27A2 /* ViewController.swift in Sources */,
 				EB5EF7B11D28291300FE3804 /* SwiftAlertView.swift in Sources */,
+				EB5EF7B91D28490000FE3804 /* SingerCollectionCell.swift in Sources */,
 				EB5EF7B31D282E4000FE3804 /* CustomAlertController.swift in Sources */,
 				EBB080771D21517000FD27A2 /* AppDelegate.swift in Sources */,
 				EB5EF7A61D27A18D00FE3804 /* DetailViewController.swift in Sources */,

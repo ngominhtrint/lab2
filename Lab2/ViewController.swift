@@ -10,16 +10,17 @@ import UIKit
 import AFNetworking
 
 class ViewController: UIViewController {
-    @IBOutlet weak var coderDateTableView: UITableView!
+    
+    @IBOutlet weak var singersTableView: UITableView!
 
     var datas = [NSDictionary]()
-    var limit = 5
+    var limit = 10
     var offset = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        coderDateTableView.delegate = self
-        coderDateTableView.dataSource = self
+        singersTableView.delegate = self
+        singersTableView.dataSource = self
         
         loadDataFromNetwork(0, limit: limit)
     }
@@ -49,33 +50,37 @@ class ViewController: UIViewController {
                     data, options:[]) as? [NSDictionary] {
                 
                     self.datas = self.datas  + responseDictionary
-                    print(self.datas)
-                    self.coderDateTableView.reloadData()
+                    self.singersTableView.reloadData()
                 }
             }
         }
-        
         task.resume()
-        
     }
     
-    
-    @IBAction func showMore(sender: UIButton) {
+    @IBAction func showMore(sender: UIBarButtonItem) {
         offset += limit
+        offset = offset <= 17 ? offset : 17
         loadDataFromNetwork(offset, limit: limit)
+    }
+    
+    // MARK: - Navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let indexPath = singersTableView.indexPathForCell(sender as! UITableViewCell)
+        let vc = segue.destinationViewController as! DetailViewController
+        vc.detailData = datas[(indexPath?.row)!]
     }
 }
 
 //MARK: tableViewDelegate
 extension ViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell") as! CoderDateTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("singerCell") as! SingerCell
         let data = datas[indexPath.row]
         
-        cell.profileName.text = data["name"] as? String
+        cell.nameLabel.text = data["name"] as? String
         if let imagePath = data["picture"] as? String {
             let imageUrl = NSURL(string: imagePath)
-            cell.profileImage.setImageWithURL(imageUrl!)
+            cell.singerImageView.setImageWithURL(imageUrl!)
         }
         return cell
     }
@@ -87,4 +92,8 @@ extension ViewController: UITableViewDataSource {
         return datas.count ?? 0
     }
 }
+
+
+
+
 

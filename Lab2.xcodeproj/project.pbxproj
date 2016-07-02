@@ -8,18 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		4C2772C2506A7BF2D46BF14A /* Pods_Lab2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D69FDB6E2E910E2DC963B787 /* Pods_Lab2.framework */; };
+		EB5EF7A41D27A01500FE3804 /* SingerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5EF7A31D27A01500FE3804 /* SingerCell.swift */; };
+		EB5EF7A61D27A18D00FE3804 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5EF7A51D27A18D00FE3804 /* DetailViewController.swift */; };
 		EBB080771D21517000FD27A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB080761D21517000FD27A2 /* AppDelegate.swift */; };
 		EBB080791D21517000FD27A2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB080781D21517000FD27A2 /* ViewController.swift */; };
 		EBB0807C1D21517000FD27A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBB0807A1D21517000FD27A2 /* Main.storyboard */; };
 		EBB0807E1D21517000FD27A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBB0807D1D21517000FD27A2 /* Assets.xcassets */; };
 		EBB080811D21517000FD27A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBB0807F1D21517000FD27A2 /* LaunchScreen.storyboard */; };
-		EBD5861D1D215F3B0023D221 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD5861C1D215F3B0023D221 /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		17FA058840965D261D2DEE40 /* Pods-Lab2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lab2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Lab2/Pods-Lab2.debug.xcconfig"; sourceTree = "<group>"; };
 		D69FDB6E2E910E2DC963B787 /* Pods_Lab2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lab2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC6BD9F10253FCAF83FF2961 /* Pods-Lab2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lab2.release.xcconfig"; path = "Pods/Target Support Files/Pods-Lab2/Pods-Lab2.release.xcconfig"; sourceTree = "<group>"; };
+		EB5EF7A31D27A01500FE3804 /* SingerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingerCell.swift; sourceTree = "<group>"; };
+		EB5EF7A51D27A18D00FE3804 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		EBB080731D21517000FD27A2 /* Lab2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lab2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBB080761D21517000FD27A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EBB080781D21517000FD27A2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -27,7 +30,6 @@
 		EBB0807D1D21517000FD27A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EBB080801D21517000FD27A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EBB080821D21517000FD27A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EBD5861C1D215F3B0023D221 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,7 +88,8 @@
 				EBB0807D1D21517000FD27A2 /* Assets.xcassets */,
 				EBB0807F1D21517000FD27A2 /* LaunchScreen.storyboard */,
 				EBB080821D21517000FD27A2 /* Info.plist */,
-				EBD5861C1D215F3B0023D221 /* Model.swift */,
+				EB5EF7A31D27A01500FE3804 /* SingerCell.swift */,
+				EB5EF7A51D27A18D00FE3804 /* DetailViewController.swift */,
 			);
 			path = Lab2;
 			sourceTree = "<group>";
@@ -214,9 +217,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB5EF7A41D27A01500FE3804 /* SingerCell.swift in Sources */,
 				EBB080791D21517000FD27A2 /* ViewController.swift in Sources */,
 				EBB080771D21517000FD27A2 /* AppDelegate.swift in Sources */,
-				EBD5861D1D215F3B0023D221 /* Model.swift in Sources */,
+				EB5EF7A61D27A18D00FE3804 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

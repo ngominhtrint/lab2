@@ -12,16 +12,16 @@ import AFNetworking
 class ViewController: UIViewController {
     @IBOutlet weak var coderDateTableView: UITableView!
 
-    var datas = [NSDictionary]?()
+    var datas = [NSDictionary]()
+    var limit = 5
+    var offset = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         coderDateTableView.delegate = self
         coderDateTableView.dataSource = self
         
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        loadDataFromNetwork()
+        loadDataFromNetwork(0, limit: limit)
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,11 +29,11 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func  loadDataFromNetwork() {
-        let url = NSURL(string: "https://fancy-raptor.hyperdev.space?offset=2&limit=2")
+    func  loadDataFromNetwork(offset: Int, limit: Int) {
+        let url = NSURL(string: "https://fancy-raptor.hyperdev.space?offset=\(offset)&limit=\(limit)")
+        print(url!)
         
-        let request = NSURLRequest(
-            URL: url!,
+        let request = NSURLRequest(URL: url!,
             cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalCacheData,
             timeoutInterval: 10)
 
@@ -47,8 +47,8 @@ class ViewController: UIViewController {
             if let data = dataOrNil {
                 if let responseDictionary = try! NSJSONSerialization.JSONObjectWithData(
                     data, options:[]) as? [NSDictionary] {
-                    
-                    self.datas = responseDictionary
+                
+                    self.datas = self.datas  + responseDictionary
                     print(self.datas)
                     self.coderDateTableView.reloadData()
                 }
@@ -58,16 +58,19 @@ class ViewController: UIViewController {
         task.resume()
         
     }
+    
+    
+    @IBAction func showMore(sender: UIButton) {
+        offset += limit
+        loadDataFromNetwork(offset, limit: limit)
+    }
 }
 
 //MARK: tableViewDelegate
 extension ViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell") as! CoderDateTableViewCell
-        guard datas != nil else {
-            return cell
-        }
-        let data = datas![indexPath.row]
+        let data = datas[indexPath.row]
         
         cell.profileName.text = data["name"] as? String
         if let imagePath = data["picture"] as? String {
@@ -81,7 +84,7 @@ extension ViewController: UITableViewDelegate {
 //MARK: tableViewDataSource
 extension ViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return datas?.count ?? 0
+        return datas.count ?? 0
     }
 }
 

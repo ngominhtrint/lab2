@@ -13,7 +13,6 @@
 		EBB0807C1D21517000FD27A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBB0807A1D21517000FD27A2 /* Main.storyboard */; };
 		EBB0807E1D21517000FD27A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBB0807D1D21517000FD27A2 /* Assets.xcassets */; };
 		EBB080811D21517000FD27A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBB0807F1D21517000FD27A2 /* LaunchScreen.storyboard */; };
-		FFE1AD851D2156790036C019 /* CoderDateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE1AD841D2156790036C019 /* CoderDateTableViewCell.swift */; };
 		EBD5861D1D215F3B0023D221 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD5861C1D215F3B0023D221 /* Model.swift */; };
 /* End PBXBuildFile section */
 
@@ -28,7 +27,6 @@
 		EBB0807D1D21517000FD27A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EBB080801D21517000FD27A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EBB080821D21517000FD27A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FFE1AD841D2156790036C019 /* CoderDateTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoderDateTableViewCell.swift; sourceTree = "<group>"; };
 		EBD5861C1D215F3B0023D221 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -88,7 +86,6 @@
 				EBB0807D1D21517000FD27A2 /* Assets.xcassets */,
 				EBB0807F1D21517000FD27A2 /* LaunchScreen.storyboard */,
 				EBB080821D21517000FD27A2 /* Info.plist */,
-				FFE1AD841D2156790036C019 /* CoderDateTableViewCell.swift */,
 				EBD5861C1D215F3B0023D221 /* Model.swift */,
 			);
 			path = Lab2;
@@ -220,7 +217,6 @@
 				EBB080791D21517000FD27A2 /* ViewController.swift in Sources */,
 				EBB080771D21517000FD27A2 /* AppDelegate.swift in Sources */,
 				EBD5861D1D215F3B0023D221 /* Model.swift in Sources */,
-				FFE1AD851D2156790036C019 /* CoderDateTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

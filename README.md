@@ -1,4 +1,4 @@
-# Project 1 - *Name of App Here*
+# Select assigment 2nd week - *LAB 2*
 
 **LAB 2** is a Korea singers app using this api (https://fancy-raptor.hyperdev.space/).
 

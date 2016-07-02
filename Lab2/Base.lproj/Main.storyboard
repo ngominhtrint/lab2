@@ -88,6 +88,11 @@
                                 <action selector="showMore:" destination="SYF-NO-ZZG" id="KIu-np-Aja"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="Kqu-eJ-bWk">
+                            <connections>
+                                <action selector="onSettingsClick:" destination="SYF-NO-ZZG" id="2Bn-m7-G9I"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>

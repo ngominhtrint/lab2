@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Answers
 
 class DetailViewController: UIViewController {
 
@@ -29,6 +30,9 @@ class DetailViewController: UIViewController {
         nameLabel.text = name
         heightLabel.text = String(height!).isEmpty ? "" : String(height!)
         dobLabel.text = dob
+        
+        let attrs = ["Name": "\(name)", "birthdate":"\(dob)"]
+        Answers.logCustomEventWithName("Singer detail", customAttributes: attrs)
     }
 
     override func didReceiveMemoryWarning() {

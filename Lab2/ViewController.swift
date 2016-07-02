@@ -8,13 +8,14 @@
 
 import UIKit
 import AFNetworking
+import Answers
 
 class ViewController: UIViewController {
     
     @IBOutlet weak var singersTableView: UITableView!
 
     var datas = [NSDictionary]()
-    var limit = 10
+    var limit = 5
     var offset = 0
     
     override func viewDidLoad() {
@@ -48,7 +49,7 @@ class ViewController: UIViewController {
             if let data = dataOrNil {
                 if let responseDictionary = try! NSJSONSerialization.JSONObjectWithData(
                     data, options:[]) as? [NSDictionary] {
-                
+                    
                     self.datas = self.datas  + responseDictionary
                     self.singersTableView.reloadData()
                 }
@@ -57,10 +58,13 @@ class ViewController: UIViewController {
         task.resume()
     }
     
+    // MARK: - Show more
     @IBAction func showMore(sender: UIBarButtonItem) {
         offset += limit
         offset = offset <= 17 ? offset : 17
         loadDataFromNetwork(offset, limit: limit)
+        
+        Answers.logCustomEventWithName("Show more", customAttributes: nil)
     }
     
     // MARK: - Navigation
@@ -71,7 +75,7 @@ class ViewController: UIViewController {
     }
 }
 
-//MARK: tableViewDelegate
+// MARK: tableViewDelegate
 extension ViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("singerCell") as! SingerCell
@@ -84,13 +88,48 @@ extension ViewController: UITableViewDelegate {
         }
         return cell
     }
+    
+    // Animate Table View Cell
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, -500, 10, 0)
+        cell.layer.transform = rotationTransform
+        
+        UIView.animateWithDuration(0.6, animations: {() -> Void in
+            cell.layer.transform = CATransform3DIdentity
+        })
+    }
 }
 
-//MARK: tableViewDataSource
+// MARK: tableViewDataSource
 extension ViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return datas.count ?? 0
     }
+}
+
+// MARK: - ActionSheet
+extension ViewController: UIActionSheetDelegate {
+    
+    @IBAction func onSettingsClick(sender: UIBarButtonItem) {
+        let alertController = UIAlertController(title: "\n\n\n\n\n\n", message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
+        
+        let margin:CGFloat = 8.0
+        let rect = CGRectMake(margin, margin, alertController.view.bounds.size.width - margin * 4.0, 100.0)
+        let customView = UIView(frame: rect)
+        
+        customView.backgroundColor = UIColor.greenColor()
+        alertController.view.addSubview(customView)
+        
+        let somethingAction = UIAlertAction(title: "Something", style: UIAlertActionStyle.Default, handler: {(alert: UIAlertAction!) in print("something")})
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: {(alert: UIAlertAction!) in print("cancel")})
+        
+        alertController.addAction(somethingAction)
+        alertController.addAction(cancelAction)
+        
+        self.presentViewController(alertController, animated: true, completion:{})
+    }
+    
 }
 
 

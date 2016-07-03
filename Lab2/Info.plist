@@ -2,11 +2,36 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <key>Fabric</key>
-    <dict>
-        <key>APIKey</key>
-        <string>68302d1797df44c9ff49845cafd1bf97a28a505a</string>
-    </dict>
+	<key>CFBundleURLTypes</key>
+	<array>
+        <dict>
+            <key>CFBundleTypeRole</key>
+            <string>Editor</string>
+            <key>CFBundleURLName</key>
+            <string>com.optimizely</string>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>optly6419660961</string>
+            </array>
+        </dict>
+	</array>
+	<key>Fabric</key>
+	<dict>
+		<key>APIKey</key>
+		<string>68302d1797df44c9ff49845cafd1bf97a28a505a</string>
+		<key>Kits</key>
+		<array>
+			<dict>
+				<key>KitInfo</key>
+				<dict>
+					<key>socket_token</key>
+					<string>AANSKh8BxzDrvzo8S8dxhNwcVNlzCepD~6419660961</string>
+				</dict>
+				<key>KitName</key>
+				<string>Optimizely</string>
+			</dict>
+		</array>
+	</dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -35,11 +60,11 @@
 	<array>
 		<string>armv7</string>
 	</array>
-    <key>NSAppTransportSecurity</key>
-    <dict>
-        <key>NSAllowsArbitraryLoads</key>
-        <true/>
-    </dict>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

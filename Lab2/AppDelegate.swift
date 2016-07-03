@@ -9,6 +9,7 @@
 import UIKit
 import Fabric
 import Answers
+import Optimizely
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,7 +20,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         Fabric.with([Answers.self])
+        Fabric.with([Optimizely.self])
+        Optimizely.startOptimizelyWithAPIToken("AANSKh8BxzDrvzo8S8dxhNwcVNlzCepD~6419660961", launchOptions:launchOptions)
         return true
+    }
+    
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+        if Optimizely.handleOpenURL(url) {
+            return true;
+        }
+        return false;
     }
 
     func applicationWillResignActive(application: UIApplication) {

@@ -40,7 +40,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ug8-3S-dcQ" userLabel="Name Label">
                                                     <rect key="frame" x="105" y="28" width="158" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -100,7 +100,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gJR-Tu-6HU">
                                                     <rect key="frame" x="47" y="140" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -123,6 +123,7 @@
                                         <connections>
                                             <outlet property="nameLabel" destination="gJR-Tu-6HU" id="gpI-rh-HPC"/>
                                             <outlet property="singerImageView" destination="Ax3-cq-bBo" id="0me-ED-edA"/>
+                                            <segue destination="OkW-fQ-a0N" kind="push" id="RPe-nS-gb1"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -284,4 +285,7 @@
             <point key="canvasLocation" x="-434" y="-511"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="yOp-qR-hnb"/>
+    </inferredMetricsTieBreakers>
 </document>

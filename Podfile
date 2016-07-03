@@ -7,5 +7,6 @@ target 'Lab2' do
 pod 'AFNetworking', '3.0.0'
 pod 'Fabric'
 pod 'Answers'
+pod 'Optimizely-iOS-SDK'
 end
 

@@ -46,6 +46,10 @@ STEP 6: Moving to a Grid
 
 Here's a walkthrough of implemented user stories:
 
+***Optimizely - Live Variables***
+
+<img src='http://i.imgur.com/wRHn3QY.gif' title='Live Variables' width='' />
+
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes

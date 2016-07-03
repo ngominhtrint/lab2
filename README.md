@@ -36,7 +36,7 @@ STEP 4: Summarize your results
 
 STEP 5: Make really sure.
 
-- [ ] Implement an A/B test.
+- [x] Implement an A/B test by intergrate Optimizely SDK
 
 STEP 6: Moving to a Grid
 
